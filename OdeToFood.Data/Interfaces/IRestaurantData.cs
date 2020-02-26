@@ -8,7 +8,10 @@ namespace OdeToFood.Data.Interfaces
     public interface IRestaurantData
     {
         IEnumerable<Restaurant> GetAll();
-
         IEnumerable<Restaurant> GetRestaurantsByName(string name);
+        Restaurant GetRestaurantById(int restaurantId);
+        Restaurant AddNewRestaurant(Restaurant newRestaurant);
+        Restaurant UpdateRestaurant(Restaurant updatedRestaurant);
+        int Commit();
     }
 }

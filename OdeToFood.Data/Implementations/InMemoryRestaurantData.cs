@@ -30,6 +30,11 @@ namespace OdeToFood.Data.Implementations
             return list;
         }
 
+        public Restaurant GetRestaurantById(int restaurantId)
+        {
+            return restaurants.SingleOrDefault(r => r.Id == restaurantId);
+        }
+
         public IEnumerable<Restaurant> GetRestaurantsByName(string name=null)
         {
             var list = from restaurant in restaurants
@@ -39,6 +44,32 @@ namespace OdeToFood.Data.Implementations
 
 
                       return list;
+        }
+
+        public Restaurant UpdateRestaurant(Restaurant updatedRestaurant)
+        {
+            var restaurant = restaurants.SingleOrDefault(r => r.Id == updatedRestaurant.Id);
+            if (restaurant != null)
+            {
+                restaurant.Name = updatedRestaurant.Name;
+                restaurant.Location = updatedRestaurant.Location;
+                restaurant.Cuisine = updatedRestaurant.Cuisine;
+            }
+
+            return restaurant;
+        }
+
+        public int Commit()
+        {
+            return 0;
+        }
+
+        public Restaurant AddNewRestaurant(Restaurant newRestaurant)
+        {
+            restaurants.Add(newRestaurant);
+            newRestaurant.Id = restaurants.Max(r => r.Id) + 1;
+
+            return newRestaurant;
         }
     }
 }
