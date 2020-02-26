@@ -3,3 +3,9 @@
 ################################################################################
 
 /.vs
+/OdeToFood/obj
+/OdeToFood/bin/Debug/netcoreapp2.1
+/OdeToFood.Core/obj
+/OdeToFood.Core/bin/Debug/netcoreapp2.1
+/OdeToFood.Data/bin/Debug/netcoreapp2.1
+/OdeToFood.Data/obj
